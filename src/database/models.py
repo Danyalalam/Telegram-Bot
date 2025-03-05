@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, create_engine
+from sqlalchemy import Column, Integer, String, Text, DateTime, create_engine, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import datetime
@@ -16,6 +16,7 @@ class User(Base):
     username = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     last_interaction = Column(DateTime, default=datetime.datetime.utcnow)
+    subscribed_to_tips = Column(Boolean, default=False)
     
 class Conversation(Base):
     __tablename__ = "conversations"
